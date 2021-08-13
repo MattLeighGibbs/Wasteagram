@@ -32,6 +32,10 @@ dependencies:
   cloud_firestore: ^2.4.0
   firebase_storage: ^10.0.1
   image_picker: ^0.8.3
+  intl: ^0.17.0
+  geocoding: ^2.0.0
+  geolocator: ^7.4.0
+  simpleprogressdialog: ^1.0.8
 
 
 dev_dependencies:
