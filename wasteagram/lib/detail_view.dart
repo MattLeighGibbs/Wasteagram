@@ -1,5 +1,5 @@
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:wasteagram/helpers/datetime_helper.dart';
 import 'package:wasteagram/model/post_model.dart';
 
 class DetailView extends StatelessWidget {
@@ -8,6 +8,38 @@ class DetailView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: Image.network(model.imageURL!));
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Wasteagram'),
+          centerTitle: true,
+        ),
+        body: buildBody());
+  }
+
+  TextStyle getTextStyle() {
+    return TextStyle(fontSize: 40);
+  }
+
+  Widget buildBody() {
+    return Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+      Text(
+        DatetimeHelper.formatDateTime(model.date!),
+        style: getTextStyle(),
+      ),
+      Image.network(model.imageURL!),
+      Text(
+        model.quantity.toString() + ' Items',
+        style: getTextStyle(),
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Location:'),
+          SizedBox(width: 15),
+          Text(model.latitude.toString() + ',  '),
+          Text(model.longitude.toString())
+        ],
+      )
+    ]);
   }
 }

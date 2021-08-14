@@ -21,13 +21,17 @@ class PostModel {
   PostModel();
 
   Map<String, Object> toMap() {
-    return {
-      Strings.date: date!,
-      Strings.imageURL: imageURL!,
-      Strings.latitude: latitude!,
-      Strings.longitude: longitude!,
-      Strings.quantity: quantity!
-    };
+    if (isComplete()) {
+      return {
+        Strings.date: date!,
+        Strings.imageURL: imageURL!,
+        Strings.latitude: latitude!,
+        Strings.longitude: longitude!,
+        Strings.quantity: quantity!
+      };
+    } else {
+      return {};
+    }
   }
 
   bool isComplete() {

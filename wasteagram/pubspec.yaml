@@ -35,7 +35,6 @@ dependencies:
   intl: ^0.17.0
   geocoding: ^2.0.0
   geolocator: ^7.4.0
-  simpleprogressdialog: ^1.0.8
 
 
 dev_dependencies:
